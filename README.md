@@ -12,15 +12,8 @@ sorry people with older kernels, the code is removed.
 Currently tested on X86_64 platform(s) **only**,  
 cross compile possible.
 
-<div class="panel panel-danger">
-**Danger**
-{: .panel-heading}
-<div class="panel-body">
-
-Tested on Ubuntu 14, 16 and 18
-
-</div>
-</div>
+> **Tested on**
+>> Ubuntu 14, 16 and 18
 
 
 For compiling type  
