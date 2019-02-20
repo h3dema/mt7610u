@@ -1,0 +1,45 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          mt7610u
+# Required-Start:
+# Required-Stop:
+# Should-Start:
+# Should-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: load wireless module
+### END INIT INFO
+
+set -e
+
+
+case "$1" in
+  start)
+    sudo modprobe cfg80211
+    ##
+    #
+    # this scripts assumes that the git source is in /usr/local/mt7610u/
+    #
+    ##
+    cd /usr/local/mt7610u/
+    sudo insmod mt7610u.ko
+    ;;
+  stop)
+    sudo rmmod -v mt7610u
+    ;;
+  status)
+    is_running=`lsmod | grep mt7610u | wc -l`
+    if [ "$is_running" -eq "0" ]; then
+        echo "mt7610u is not loaded"
+    else
+        echo "mt7610u is loaded"
+    fi
+    ;;
+  *)
+    echo "Usage: /etc/init.d/mt7610u {start|stop|status}"
+    exit 1
+    ;;
+esac
+
+exit 0
