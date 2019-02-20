@@ -19,8 +19,15 @@ in source dir
 To install the firmware files  
 `sudo make installfw`
 
+__HENRIQUE ADDED:__
+
 For install the driver use  
-`sudo insmod mt7610u.ko`  
+```bash
+sudo modprobe cfg80211
+sudo insmod mt7610u.ko
+```
+
+__END__
 
 To Unload driver you may need to disconnect the device  
 
